@@ -1,0 +1,45 @@
+<!--
+  Generated template for the NotificationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="gray">
+    <ion-title>ยืนยันรับทรัพย์สินจากผู้แจ้งเรื่อง</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngFor="let item of datalist" (tap)="displayActionSheet(item)">
+  <ion-card >
+    <ion-item >
+      <img src="{{server}}/{{item.DB_Image}}{{item.DC_Image}}{{item.DK_Image}}{{item.DO_image}}" alt="">
+    </ion-item>
+        <ion-row>
+          <ion-col col-6 >หมายเลขรายการ : </ion-col>
+          <ion-col col-6 >{{item.DB_ReferenceNumber}}{{item.DC_ReferenceNumber}}{{item.DK_ReferenceNumber}}{{item.DO_ReferenceNumber}}</ion-col> 
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 >ส่งในนาม : </ion-col>
+          <ion-col col-6 >{{item.DB_Name}}{{item.DC_Name}}{{item.DK_Name}}{{item.DO_Name}}</ion-col> 
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 >ประเภททรัพย์สิน : </ion-col>
+          <ion-col col-6 >{{item.DB_PropertyType}}{{item.DC_PropertyType}}{{item.DK_PropertyType}}{{item.DO_PropertyType}}</ion-col> 
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 >สถานที่พบ/หาย : </ion-col>
+          <ion-col col-6 >{{item.DB_Location}}{{item.DC_Location}}{{item.DK_Location}}{{item.DO_Location}}</ion-col> 
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 >วันที่พบ/หาย : </ion-col>
+          <ion-col col-6 >{{item.DB_Date}}{{item.DC_Date}}{{item.DK_Date}}{{item.DO_Date}}</ion-col> 
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 >การกระทำ: </ion-col>
+          <ion-col col-6 >{{item.DB_Action}}{{item.DC_Action}}{{item.DK_Action}}{{item.DO_Action}}</ion-col> 
+        </ion-row>
+  </ion-card>
+  </ion-list>
+</ion-content>

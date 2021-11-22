@@ -1,0 +1,41 @@
+<!--
+  Generated template for the FKeysPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color = secondary >
+    <ion-title ALIGN = "MIDDLE" >ประเภททรัพย์สิน "กุญแจ"</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-title> เลือกชนิดลูกกุญแจ</ion-title>
+  <ion-list>
+    <ion-item *ngFor = "let check of datakey"  
+              (click) = "onclick( check )" >
+      <ion-label>{{ check.name }}</ion-label>
+      <ion-checkbox 
+        [(ngModel)] = "check.selected"
+        [color] = "check.color" >
+      </ion-checkbox>
+    </ion-item>
+  </ion-list> 
+  
+    <ion-item>
+      <ion-label floating>ลักษณะพิเศษ/สัญลักษณ์(พวงกุญแจ)</ion-label>
+      <ion-input [(ngModel)]="postdata.FSymbol" type="text" ></ion-input>
+    </ion-item>
+
+    <ion-label>แนบรูปภาพ</ion-label>
+    <div>
+      <button ion-button float-left (click)="presentActionSheet()">เลือกรูปภาพ</button>
+    </div>
+    <ion-item *ngIf="base64Image">
+      <img src="{{base64Image}}" title= "pict" >
+    </ion-item>
+    <div>
+      <button ion-button float-right (click)="uploadImg()">ส่ง</button>
+    </div>
+</ion-content>

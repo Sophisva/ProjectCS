@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar color = Warning>
+    <ion-title ALIGN = "MIDDLE" >แจ้งเรื่องทรัพย์สินหาย</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <ion-item>
+    <ion-label floating>รหัสนิสิต</ion-label>
+    <ion-input [(ngModel)]="postdata.LNontriCode" type="text" ></ion-input>
+  </ion-item> -->
+  <ion-item>
+    <ion-label floating>ชื่อ-นามสกุลผู้เเจ้ง</ion-label>
+    <ion-input [(ngModel)]="postdata.LName" type="text" ></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>วันที่ทำทรัพย์สินสูญหาย</ion-label>
+    <ion-datetime displayFormat="DD MM YYYY" [(ngModel)]="postdata.Date" placeholder="Select Date" ></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>ช่วงเวลาที่ทำทรัพย์สินสูญหาย</ion-label>
+    <ion-select [(ngModel)]="postdata.LTime" submitText="OK" cancelText="Cancel" >
+      <ion-option value="00.00 - 02.59">00.00 - 02.59</ion-option>
+      <ion-option value="03.00 - 05.59">03.00 - 05.59</ion-option>
+      <ion-option value="06.00 - 08.59">06.00 - 08.59</ion-option>
+      <ion-option value="09.00 - 11.59">09.00 - 11.59</ion-option>
+
+      <ion-option value="12.00 - 14.59">12.00 - 14.59</ion-option>
+      <ion-option value="15.00 - 17.59">15.00 - 17.59</ion-option>
+      <ion-option value="18.00 - 20.59">18.00 - 20.59</ion-option>
+      <ion-option value="21.00 - 23.59">21.00 - 23.59</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>สถานที่คาดว่าทำทรัพย์สินหาย</ion-label>
+    <ion-input [(ngModel)]="postdata.LLocation" type="text" ></ion-input>
+  </ion-item>
+  <br>
+
+   <ion-item>
+    <ion-label>ประเภททรัพย์สิน</ion-label>
+    <ion-select [(ngModel)]="postdata.LPropertyType" submitText="OK" cancelText="Cancel" >
+      <ion-option value="B">กระเป๋า</ion-option>
+      <ion-option value="K">กุญแจ</ion-option>
+      <ion-option value="C">บัตรต่างๆ</ion-option>
+      <ion-option value="O">อื่นๆ</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <button ion-button float-right color="dark" (click)=sendvalue() >ถัดไป</button>
+  
+</ion-content>

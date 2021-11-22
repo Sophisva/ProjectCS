@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar color="Warning">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title float-left>Ku.Kps Lost&Found</ion-title>
+    <img float-right style="margin: auto; height: 10%; width: 10%" src="assets/imgs/SignUp.png" (click)="onSignUpClick()"/> 
+  </ion-navbar>  
+  
+</ion-header>
+
+<ion-content padding>
+  <img style="margin: auto; height: 20%; width:100%" src="assets/imgs/home.png"/>
+  
+  <ion-list *ngFor="let item of datalist" >
+    <ion-card >
+      <span *ngIf="item.LAFP_PropertyType == 'Bag'">
+        <span *ngIf="item.LAFP_Action == 'Found'">
+          <img src="assets/imgs/Bag.jpg" alt="">
+        </span>
+          <span *ngIf="item.LAFP_Action == 'Lost'">
+            <ion-item >
+            <img src="{{server}}/{{item.LAFP_Image}}" alt="">
+            </ion-item>
+          </span>
+      </span>
+
+      <span *ngIf="item.LAFP_PropertyType == 'Card'">
+        <span *ngIf="item.LAFP_Action == 'Found'">
+          <img src="assets/imgs/card.png" alt="">
+        </span>
+        <span *ngIf="item.LAFP_Action == 'Lost'">
+          <ion-item >
+          <img src="{{server}}/{{item.LAFP_Image}}" alt="">
+          </ion-item>
+        </span>
+     </span>
+
+
+      <span *ngIf="item.LAFP_PropertyType == 'Key'">
+        <ion-item >
+        <img src="{{server}}/{{item.LAFP_Image}}" alt="">
+        </ion-item> 
+      </span>
+
+
+      <span *ngIf="item.LAFP_PropertyType != 'Other' && item.LAFP_PropertyType != 'Bag' && item.LAFP_PropertyType != 'Card' && item.LAFP_PropertyType != 'Key'">
+        <span *ngIf="item.LAFP_Action == 'Found'">
+          <img src="assets/imgs/other.jpg" alt="">
+        </span>
+        <span *ngIf="item.LAFP_Action == 'Lost'">
+          <ion-item >
+          <img src="{{server}}/{{item.LAFP_Image}}" alt="">
+          </ion-item>
+        </span>
+      </span >
+
+          <ion-row>
+            <ion-col col-6 >หมายเลขรายการ : </ion-col>
+            <ion-col col-6 >{{item.LAFP_ReferenceNumber}}</ion-col> 
+          </ion-row>
+          <ion-row>
+            <ion-col col-6 >ประเภททรัพย์สิน : </ion-col>
+            <ion-col col-6 >{{item.LAFP_PropertyType}}</ion-col> 
+          </ion-row>
+          <span *ngIf="item.LAFP_Action == 'Lost'">
+          <ion-row>
+            <ion-col col-6 >วันที่ทำหาย(โดยประมาณ): </ion-col>
+            <ion-col col-6 >{{item.LAFP_DateLost_Found}}</ion-col> 
+          </ion-row>
+          </span>
+          <span *ngIf="item.LAFP_Action == 'Found'">
+          <ion-row>
+            <ion-col col-6 >วันที่พบเจอ(โดยประมาณ): </ion-col>
+            <ion-col col-6 >{{item.LAFP_DateLost_Found}}</ion-col> 
+          </ion-row>
+          </span>
+          <ion-row>
+            <ion-col col-6 >การกระทำ: </ion-col>
+            <ion-col col-6 >{{item.LAFP_Action}}</ion-col> 
+          </ion-row>
+    </ion-card>
+    </ion-list>
+</ion-content>

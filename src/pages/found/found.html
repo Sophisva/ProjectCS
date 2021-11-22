@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-navbar color = secondary>
+    <ion-title ALIGN = "MIDDLE" >แจ้งเรื่องพบเจอทรัพย์สิน</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <ion-item>
+    <ion-label floating>รหัสนิสิต</ion-label>
+    <ion-input [(ngModel)]="postdata.FNontriCode" type="text"></ion-input>
+  </ion-item> -->
+  <ion-item>
+    <ion-label floating>ชื่อ-นามสกุลผู้เเจ้ง ( ไม่ประสงค์ออกนามใส่ - )</ion-label>
+    <ion-input [(ngModel)]="postdata.FName" type="text"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>วันที่พบทรัพย์สิน</ion-label>
+    <ion-datetime displayFormat="DD MM YY" placeholder="Select Date" [(ngModel)]="postdata.Date"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>ช่วงเวลาที่พบทรัพย์สิน</ion-label>
+    <ion-select [(ngModel)]="postdata.FTime" submitText="OK" cancelText="Cancel">
+      <ion-option value="00.00 - 02.59">00.00 - 02.59</ion-option>
+      <ion-option value="03.00 - 05.59">03.00 - 05.59</ion-option>
+      <ion-option value="06.00 - 08.59">06.00 - 08.59</ion-option>
+      <ion-option value="09.00 - 11.59">09.00 - 11.59</ion-option>
+      <ion-option value="12.00 - 14.59">12.00 - 14.59</ion-option>
+      <ion-option value="15.00 - 17.59">15.00 - 17.59</ion-option>
+      <ion-option value="18.00 - 20.59">18.00 - 20.59</ion-option>
+      <ion-option value="21.00 - 23.59">21.00 - 23.59</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>สถานที่พบทรัพย์สิน</ion-label>
+    <ion-input [(ngModel)]="postdata.FLocation" type="text"></ion-input>
+  </ion-item>
+  <br>
+  <!-- <ion-item>
+    <ion-label>ประเภททรัพย์สิน</ion-label>
+    <ion-select [(ngModel)]="LType" submitText="OK" cancelText="Cancel">
+      <ion-option value="0">กระเป๋า</ion-option>
+      <ion-option value="1">กุญแจ</ion-option>
+      <ion-option value="2">บัตรต่าง ๆ</ion-option>
+      <ion-option value="3">เครื่องประดับ/ของมีค่า</ion-option>
+    </ion-select>
+  </ion-item>  -->
+  <!-- <ion-item>
+    <ion-label floating>รายละเอียดทรัพย์สิน</ion-label>
+    <ion-input [(ngModel)]="LDetailsProperty" type="text"></ion-input>
+  </ion-item> -->  
+  <!-- <ion-title>ประเภททรัพย์สิน</ion-title>
+  <ion-row text-center>
+    <ion-col>
+      <button ion-button color="dark" (click)=onFBagsPageclick()>กระเป๋า</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button color="dark" (click)=onFKeysPageclick()>กุญแจ</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button color="dark" (click)=onFCardPageclick()>บัตร</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button color="dark" (click)=onFOtherPageclick()>อื่น ๆ</button>
+    </ion-col>
+   </ion-row> -->
+
+   <ion-item>
+    <ion-label>ประเภททรัพย์สิน</ion-label>
+    <ion-select [(ngModel)]="postdata.FPropertyType" submitText="OK" cancelText="Cancel"  >
+      <ion-option value="B">กระเป๋า</ion-option>
+      <ion-option value="K">กุญแจ</ion-option>
+      <ion-option value="C">บัตรต่างๆ</ion-option>
+      <ion-option value="O">อื่นๆ</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <button ion-button float-right color="dark" (click)=sendvalue() >ถัดไป</button>
+</ion-content>
+

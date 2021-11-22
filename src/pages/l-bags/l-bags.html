@@ -1,0 +1,70 @@
+<!--
+  Generated template for the LBagsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color = Warning>
+    <ion-title ALIGN = "MIDDLE" >ประเภททรัพย์สิน "กระเป๋า"</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>ประเภทกระเป๋า</ion-label>
+    <ion-select [(ngModel)]="postdata.LBagsType" submitText="OK" cancelText="Cancel">
+      <ion-option value="กระเป๋าใบสั้น">กระเป๋าใบสั้น</ion-option>
+      <ion-option value="กระเป๋าใบยาว">กระเป๋าใบยาว</ion-option>
+      <ion-option value="กระเป๋าสะพายข้าง">กระเป๋าสะพายข้าง</ion-option>
+      <ion-option value="กระเป๋าเป้">กระเป๋าเป้</ion-option>
+    </ion-select>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label floating>ยี่ห้อ( ไม่ทราบใส่ - )</ion-label>
+    <ion-input [(ngModel)]="postdata.LBageBrand" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>วัสดุ</ion-label>
+    <ion-select [(ngModel)]="postdata.LMaterialags" submitText="OK" cancelText="Cancel">
+      <ion-option value="หนัง">หนัง</ion-option>
+      <ion-option value="ผ้า">ผ้า</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>โทนสี</ion-label>
+    <ion-select [(ngModel)]="postdata.LCoLorBags" submitText="OK" cancelText="Cancel">
+      <ion-option value="ดำ">ดำ</ion-option>
+      <ion-option value="น้ำตาล">น้ำตาล</ion-option>
+      <ion-option value="เทา">เทา</ion-option>
+      <ion-option value="ขาว">ขาว</ion-option>
+      <ion-option value="ม่วง">ม่วง</ion-option>
+      <ion-option value="แดง">แดง</ion-option>
+      <ion-option value="ชมพู">ชมพู</ion-option>
+      <ion-option value="ส้ม">ส้ม</ion-option>
+      <ion-option value="เหลือง">เหลือง</ion-option>
+      <ion-option value="เขียว">เขียว</ion-option>
+      <ion-option value="น้ำเงิน">น้ำเงิน</ion-option>
+      <ion-option value="ฟ้า">ฟ้า</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>ทรัพย์สิน/สิ่งของที่อยู่ภายในกระเป๋า</ion-label>
+    <ion-input [(ngModel)]="postdata.LBageDetail" type="text"></ion-input>
+  </ion-item>
+
+  <ion-label>แนบรูปภาพ</ion-label>
+  <div>
+    <button ion-button float-left (click)="presentActionSheet()">เลือกรูปภาพ</button>
+  </div>
+  <ion-item *ngIf="base64Image">
+    <img src="{{base64Image}}" title= "pict" >
+  </ion-item>
+  <div>
+    <button ion-button float-right (click)="uploadImg()">ส่ง</button>
+  </div>
+</ion-content>

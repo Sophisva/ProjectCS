@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar color = Warning>
+    <ion-title float-left >หน้าหลัก</ion-title>
+    <img float-right style="margin: auto; height: 8%; width: 10%" src="assets/imgs/logout.png" (click)="onLogOutClick()"/>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding > 
+  <!-- class="bg" -->
+  <br>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-1 >
+      </ion-col>
+      <ion-col col-10 >
+        <img style="margin: auto; height: 150%; width: 200%" src="assets/imgs/Lost.jpg" (click)="StatusL()" />
+      </ion-col>
+      <ion-col col-1 >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <br>
+  <br>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-1 >
+      </ion-col>
+      <ion-col col-10 >
+        <img style="margin: auto; height: 150%; width: 200%" src="assets/imgs/Found.jpg" (click)="StatusF()"/>
+      </ion-col>
+      <ion-col col-1 >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <br>
+  <br>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-1 >
+      </ion-col>
+      <ion-col col-10 >
+        <img style="margin: auto; height: 150%; width: 200%" src="assets/imgs/History.jpg" (click)="onHistioryClick()"/>
+      </ion-col>
+      <ion-col col-1 >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,293 @@
+<!--
+  Generated template for the HistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color = dark>
+    <ion-title ALIGN = "MIDDLE"  >ประวัติการแจ้งเรื่อง</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngFor="let item of datalist">
+    <ion-card>
+      <br>
+      <ion-item >
+          <img src="{{server}}/{{item.DB_Image}}" alt="">
+      </ion-item>
+    <ion-row>
+      <ion-col col-6 >หมายเลขรายการ : </ion-col>
+      <ion-col col-6 >{{item.DB_ReferenceNumber}} </ion-col> 
+    </ion-row> 
+    <ion-row>
+      <ion-col col-6 >ประเภทของทรัพย์สิน : </ion-col>
+      <ion-col col-6 >{{item.DB_PropertyType}} </ion-col> 
+    </ion-row>
+    <ion-row>
+       <ion-col col-6 >ชื่อที่แจ้งเรื่อง : </ion-col>
+      <ion-col col-6 > {{item.DB_Name}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >วันที่ : </ion-col>
+      <ion-col col-6 > {{item.DB_Date}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >เวลา : </ion-col>
+      <ion-col col-6 > {{item.DB_Time}}</ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >สถานที่ : </ion-col>
+      <ion-col col-6 > {{item.DB_Location}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >รายละเอียด : </ion-col>
+      <ion-col col-6 > {{item.DB_Detail}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 > การกระทำ: </ion-col>
+      <ion-col col-6 > {{item.DB_Action}} </ion-col> 
+    </ion-row>
+    <span *ngIf="item.DB_Status == 'ยังไม่มีเจ้าของมารับทรัพย์สินคืน'">
+    <ion-row>
+      <ion-col col-6 >สถานะของทรัพย์สิน : </ion-col>
+      <ion-col col-6 > <font color = "red"> {{item.DB_Status}} </font> </ion-col> 
+    </ion-row>
+    </span>
+    <span *ngIf="item.DB_Status == 'เจ้าของได้รับทรัพย์สินคืนเรียบร้อย'">
+      <ion-row>
+        <ion-col col-6 >สถานะของทรัพย์สิน : </ion-col>
+        <ion-col col-6 > <font color = "#00FF00"> {{item.DB_Status}} </font> </ion-col> 
+      </ion-row>
+      </span>
+    <span *ngIf="item.DB_Action == 'Found'">
+      <span *ngIf="item.DB_StatusProperty == 'Success'">
+        <ion-row>
+          <ion-col col-6 >สถานะการส่งทรัพย์สินให้เจ้าหน้าที่: </ion-col>
+          <ion-col col-6 ><font color = "#00FF00"> {{item.DB_StatusProperty}} </font></ion-col> 
+        </ion-row>
+        </span>
+        <span *ngIf="item.DO_StatusProperty == 'Unsuccessful'">
+          <ion-row>
+            <ion-col col-6 >สถานะการส่งทรัพย์สินให้เจ้าหน้าที่: </ion-col>
+            <ion-col col-6 ><font color = "red"> {{item.DB_StatusProperty}} </font></ion-col> 
+          </ion-row>
+        </span>
+      </span>
+    <br>
+  </ion-card>
+  </ion-list>
+
+  <ion-list *ngFor="let item of datalist2" >
+    <ion-card>
+      <br>
+      <ion-item >
+          <img src="{{server}}/{{item.DC_Image}}" alt="">
+      </ion-item>
+    <ion-row>
+      <ion-col col-6 >หมายเลขรายการ : </ion-col>
+      <ion-col col-6 >{{item.DC_ReferenceNumber}} </ion-col> 
+    </ion-row> 
+    <ion-row>
+      <ion-col col-6 > ประเภทของทรัพย์สิน : </ion-col>
+      <ion-col col-6 > {{item.DC_PropertyType}} </ion-col> 
+    </ion-row>
+    <ion-row>
+       <ion-col col-6 >ชื่อที่แจ้งเรื่อง : </ion-col>
+      <ion-col col-6 > {{item.DC_Name}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >วันที่ : </ion-col>
+      <ion-col col-6 > {{item.DC_Date}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >เวลา : </ion-col>
+      <ion-col col-6 > {{item.DC_Time}}</ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >สถานที่ : </ion-col>
+      <ion-col col-6 > {{item.DC_Location}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >ประเภทของบัตร : </ion-col>
+      <ion-col col-6 >{{item.DC_CardType}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >ชื่อเจ้าของบัตร : </ion-col>
+      <ion-col col-6 >{{item.DC_Owner}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 > การกระทำ: </ion-col>
+      <ion-col col-6 > {{item.DC_Action}} </ion-col> 
+    </ion-row>
+    <span *ngIf="item.DC_Status == 'ยังไม่มีเจ้าของมารับทรัพย์สินคืน'">
+      <ion-row>
+        <ion-col col-6 >สถานะของทรัพย์สิน : </ion-col>
+        <ion-col col-6 > <font color = "red"> {{item.DC_Status}} </font> </ion-col> 
+      </ion-row>
+      </span>
+      <span *ngIf="item.DC_Status == 'เจ้าของได้รับทรัพย์สินคืนเรียบร้อย'">
+        <ion-row>
+          <ion-col col-6 >สถานะของทรัพย์สิน : </ion-col>
+          <ion-col col-6 > <font color = "#00FF00"> {{item.DC_Status}} </font> </ion-col> 
+        </ion-row>
+        </span>
+    <span *ngIf="item.DC_Action == 'Found'">
+      <span *ngIf="item.DC_StatusProperty == 'Success'">
+        <ion-row>
+          <ion-col col-6 >สถานะการส่งทรัพย์สินให้เจ้าหน้าที่: </ion-col>
+          <ion-col col-6 ><font color = "#00FF00"> {{item.DC_StatusProperty}} </font></ion-col> 
+        </ion-row>
+        </span>
+        <span *ngIf="item.DO_StatusProperty == 'Unsuccessful'">
+          <ion-row>
+            <ion-col col-6 >สถานะการส่งทรัพย์สินให้เจ้าหน้าที่: </ion-col>
+            <ion-col col-6 ><font color = "red"> {{item.DC_StatusProperty}} </font></ion-col> 
+          </ion-row>
+        </span>
+      </span>
+    <br>
+  </ion-card>
+  </ion-list>
+
+  <ion-list *ngFor="let item of datalist3" >
+    <ion-card>
+      <br>
+      <ion-item >
+          <img src="{{server}}/{{item.DK_Image}}" alt="">
+      </ion-item>
+    <ion-row>
+      <ion-col col-6 >หมายเลขรายการ : </ion-col>
+      <ion-col col-6 >{{item.DK_ReferenceNumber}} </ion-col> 
+    </ion-row> 
+    <ion-row>
+      <ion-col col-6 >ประเภทของทรัพย์สิน : </ion-col>
+      <ion-col col-6 > {{item.DK_PropertyType}} </ion-col> 
+    </ion-row>
+    <ion-row>
+       <ion-col col-6 >ชื่อที่แจ้งเรื่อง : </ion-col>
+      <ion-col col-6 > {{item.DK_Name}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >วันที่ : </ion-col>
+      <ion-col col-6 > {{item.DK_Date}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >เวลา : </ion-col>
+      <ion-col col-6 > {{item.DK_Time}}</ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >สถานที่ : </ion-col>
+      <ion-col col-6 > {{item.DK_Location}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >ประเภทของกุญแจ: </ion-col>
+      <ion-col col-6 >{{item.DK_KeyType}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >สัญลักษณ์ :</ion-col>
+      <ion-col col-6 >{{item.DK_Symbol}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 > การกระทำ: </ion-col>
+      <ion-col col-6 > {{item.DK_Action}} </ion-col> 
+    </ion-row>
+    <span *ngIf="item.DK_Status == 'ยังไม่มีเจ้าของมารับทรัพย์สินคืน'">
+      <ion-row>
+        <ion-col col-6 >สถานะของทรัพย์สิน : </ion-col>
+        <ion-col col-6 > <font color = "red"> {{item.DK_Status}} </font> </ion-col> 
+      </ion-row>
+      </span>
+      <span *ngIf="item.DK_Status == 'เจ้าของได้รับทรัพย์สินคืนเรียบร้อย'">
+        <ion-row>
+          <ion-col col-6 >สถานะของทรัพย์สิน : </ion-col>
+          <ion-col col-6 > <font color = "#00FF00"> {{item.DK_Status}} </font> </ion-col> 
+        </ion-row>
+        </span>
+    <span *ngIf="item.DK_Action == 'Found'">
+      <span *ngIf="item.DK_StatusProperty == 'Success'">
+        <ion-row>
+          <ion-col col-6 >สถานะการส่งทรัพย์สินให้เจ้าหน้าที่: </ion-col>
+          <ion-col col-6 ><font color = "#00FF00"> {{item.DK_StatusProperty}} </font></ion-col> 
+        </ion-row>
+        </span>
+        <span *ngIf="item.DK_StatusProperty == 'Unsuccessful'">
+          <ion-row>
+            <ion-col col-6 >สถานะการส่งทรัพย์สินให้เจ้าหน้าที่: </ion-col>
+            <ion-col col-6 ><font color = "red"> {{item.DK_StatusProperty}} </font></ion-col> 
+          </ion-row>
+        </span>
+      </span>
+    <br>
+  </ion-card>
+  </ion-list>
+
+  <ion-list *ngFor="let item of datalist4" >
+    <ion-card>
+      <br>
+      <ion-item >
+          <img src="{{server}}/{{item.DO_image}}" alt="">
+      </ion-item>
+    <ion-row>
+      <ion-col col-6 >หมายเลขรายการ : </ion-col>
+      <ion-col col-6 >{{item.DO_ReferenceNumber}} </ion-col> 
+    </ion-row> 
+    <ion-row>
+      <ion-col col-6 >ประเภทของทรัพย์สิน : </ion-col>
+      <ion-col col-6 > {{item.DO_PropertyType}} </ion-col> 
+    </ion-row>
+    <ion-row>
+       <ion-col col-6 >ชื่อที่แจ้งเรื่อง : </ion-col>
+      <ion-col col-6 > {{item.DO_Name}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >วันที่ : </ion-col>
+      <ion-col col-6 > {{item.DO_Date}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >เวลา : </ion-col>
+      <ion-col col-6 > {{item.DO_Time}}</ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >สถานที่ : </ion-col>
+      <ion-col col-6 > {{item.DO_Location}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 >รายละเอียด : </ion-col>
+      <ion-col col-6 >{{item.DO_Detail}} </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 > การกระทำ: </ion-col>
+      <ion-col col-6 > {{item.DO_Action}} </ion-col> 
+    </ion-row>
+      <span *ngIf="item.DO_Status == 'ยังไม่มีเจ้าของมารับทรัพย์สินคืน'">
+      <ion-row>
+        <ion-col col-6 >สถานะของทรัพย์สิน : </ion-col>
+        <ion-col col-6 > <font color = "red"> {{item.DO_Status}} </font> </ion-col> 
+      </ion-row>
+      </span>
+      <span *ngIf="item.DO_Status == 'เจ้าของได้รับทรัพย์สินคืนเรียบร้อย'">
+        <ion-row>
+          <ion-col col-6 >สถานะของทรัพย์สิน : </ion-col>
+          <ion-col col-6 > <font color = "#00FF00"> {{item.DO_Status}} </font> </ion-col> 
+        </ion-row>
+        </span>
+      <span *ngIf="item.DO_Action == 'Found'">
+      <span *ngIf="item.DO_StatusProperty == 'Success'">
+      <ion-row>
+        <ion-col col-6 >สถานะการส่งทรัพย์สินให้เจ้าหน้าที่: </ion-col>
+        <ion-col col-6 ><font color = "#00FF00"> {{item.DO_StatusProperty}} </font></ion-col> 
+      </ion-row>
+      </span>
+      <span *ngIf="item.DO_StatusProperty == 'Unsuccessful'">
+        <ion-row>
+          <ion-col col-6 >สถานะการส่งทรัพย์สินให้เจ้าหน้าที่: </ion-col>
+          <ion-col col-6 ><font color = "red"> {{item.DO_StatusProperty}} </font></ion-col> 
+        </ion-row>
+      </span>
+    </span>
+    <br>
+  </ion-card>
+  </ion-list>
+</ion-content>

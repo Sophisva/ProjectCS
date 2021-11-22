@@ -1,0 +1,48 @@
+<!--
+  Generated template for the SaveDataOwnerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>บันทึกข้อมูลผู้มารับทรัพย์สิน</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>หมายเลขรายการทรัพย์สินที่ประกาศ</ion-label>
+    <ion-input [(ngModel)]="postdata.ReferennamberLost" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>ชื่อ-สกุล</ion-label>
+    <ion-input [(ngModel)]="postdata.Name" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>หมายเลขโทรศัพท์</ion-label>
+    <ion-input [(ngModel)]="postdata.Tel" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Facebook</ion-label>
+    <ion-input [(ngModel)]="postdata.Facebook" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>ID Line</ion-label>
+    <ion-input [(ngModel)]="postdata.IDLine" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>หมายเหตุ</ion-label>
+    <ion-input [(ngModel)]="postdata.Note" type="text"></ion-input>
+  </ion-item>
+  <ion-label >แนบรูปภาพ</ion-label>
+  <div>
+    <button ion-button float-left (click)="presentActionSheet()">เลือกรูปภาพ</button>
+  </div>
+  <ion-item *ngIf="base64Image">
+    <img src="{{base64Image}}" title= "pict" >
+  </ion-item>
+  <div>
+    <button ion-button float-right (click)="save()">ส่ง</button>
+  </div>
+</ion-content>
